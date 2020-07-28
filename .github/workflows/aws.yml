@@ -26,8 +26,6 @@
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master, develop ]
   release:
     types: [created]
 
