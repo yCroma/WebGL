@@ -70,12 +70,14 @@ jobs:
         # 複数ファイルを想定し、docker-compose でビルドすることにした。
         docker-compose -f docker-compose.yml -f ./docker/prod/docker-compose.prod.yml build
 
-        docker-compose -f docker-compose.yml -f ./docker/prod/docker-compose.prod.yml ps -a
+        docker images
+        docker ps -a
 
         docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-        docker-compose -f docker-compose.yml -f ./docker/prod/docker-compose.prod.yml ps -a
-        
+        docker images
+        docker ps -a
+
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
