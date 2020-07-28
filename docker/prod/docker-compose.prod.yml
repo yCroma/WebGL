@@ -1,0 +1,12 @@
+version: '3.7'
+services: 
+  nuxt:
+    build:
+      context: .
+      dockerfile: ./docker/prod/Dockerfile
+      args:
+        APP_NAME: ${APP_NAME}
+        APP_PORT: ${APP_PORT}
+        HOST: ${HOST}
+    # リポジトリ名を設定するには、ハードコーディングするしかなかった
+    image: webgl
