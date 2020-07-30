@@ -1,3 +1,6 @@
+up:
+	cd commands/dev && bash up.sh
+
 down:
 	cd commands/dev && bash down.sh
 
