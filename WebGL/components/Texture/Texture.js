@@ -1,9 +1,5 @@
-import * as THREE from 'three'
 import Canvas from '@/components/Tool/Canvas'
-import Box from '@/components/Geometry/Box'
-import BumpMap from '@/components/Tool/Texture/BumpMap'
-import Stone from '@/assets/images/stone.jpg'
-import StoneBump from '@/assets/images/stone-bump.jpg'
+import Blueprint from '@/components/Texture/Blueprint'
 
 export default class Texture {
   constructor (props) {
@@ -13,9 +9,11 @@ export default class Texture {
 
   init () {
     Canvas.init(this.props.$canvas)
-    this.geometry = new Box(5, 5, 5)
-    this.material = new BumpMap(Stone, StoneBump)
-    this.mesh = new THREE.Mesh(this.geometry, this.material)
+    // camera の調整
+    Canvas.camera.position.set(0, 0, 20)
+    // Blueprint内にgeometryとmaterialの情報がまとまっている
+    this.mesh = new Blueprint()
+    this.mesh.position.set(0, 0, 0)
     Canvas.scene.add(this.mesh)
     window.addEventListener('resize', this.resize.bind(this))
     this.loop()
@@ -27,14 +25,7 @@ export default class Texture {
 
   loop () {
     this.render()
-
-    this.mesh.rotation.x += 0.01
     this.mesh.rotation.y += 0.01
-    /*
-    this.mesh2.rotation.x += 0.01
-    this.mesh2.rotation.y += 0.01
-    */
-
     requestAnimationFrame(this.loop.bind(this))
   }
 
