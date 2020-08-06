@@ -1,8 +1,8 @@
 <template>
   <section>
     <p>
-      URLの部分を1~999でいじるとオブジェクトの個数が変化します。<br>
-      現在のURL http://www.webgl.cromalog.com/fog/{{ $route.params.id }}<br>
+      URIの部分を1~999でいじるとオブジェクトの個数が変化します。<br>
+      現在のURI http://www.webgl.cromalog.com/fog/{{ $route.params.id }}<br>
       サーバー側でレンダリングしているので、あまりいじめないようお願いします。
     </p>
     <p>オブジェクトの個数：{{ $route.params.id }}</p>
