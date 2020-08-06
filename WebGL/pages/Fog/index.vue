@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <div>
-      <Geometry />
+      <ConstFog />
     </div>
   </div>
 </template>
 
 <script>
-import Geometry from '@/components/Geometry'
+import ConstFog from '@/components/Fog/Const'
 
 export default {
   components: {
-    Geometry
+    ConstFog
   }
 }
 </script>

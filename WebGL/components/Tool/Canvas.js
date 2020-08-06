@@ -28,10 +28,6 @@ class Canvas {
     )
     this.camera.position.set(0, 0, 10)
     this.camera.lookAt(0, 0, 0)
-    // ライトの作成
-    this.directionalLight = new THREE.DirectionalLight('0xffffff')
-    this.directionalLight.position.set(1, 1, 1)
-    this.scene.add(this.directionalLight)
   }
 
   setSize () {
