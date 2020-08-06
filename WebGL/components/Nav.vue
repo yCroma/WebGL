@@ -7,6 +7,10 @@
     <nuxt-link to="/fog">
       フォグ
     </nuxt-link>
+    |
+    <nuxt-link to="/fog/100">
+      フォグ(カスタム)
+    </nuxt-link>
   </section>
 </template>
 
