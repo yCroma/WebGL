@@ -11,12 +11,10 @@
     <nuxt-link to="/fog/100">
       フォグ(カスタム)
     </nuxt-link>
-    <!--
     |
     <nuxt-link to="/space">
       宇宙
     </nuxt-link>
-    -->
   </section>
 </template>
 

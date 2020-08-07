@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>test_component_1</p>
+    <p>Space</p>
     <canvas ref="space" />
   </div>
 </template>
