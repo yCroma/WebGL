@@ -11,7 +11,7 @@ import VariableFog from '@/components/Fog/Variable'
 
 export default {
   validate ({ params }) {
-    return /^[1-9][0-9][0-9]$/.test(params.id)
+    return /^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/.test(params.id)
   },
   components: {
     VariableFog
