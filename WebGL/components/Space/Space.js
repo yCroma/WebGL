@@ -2,7 +2,15 @@ import * as THREE from 'three'
 // Canvasのインポート
 import Canvas from '@/components/Tool/Canvas'
 // Lightのインポート
-import Directional from '@/components/Tool/Light/Drectional'
+import Ambient from '@/components/Tool/Light/Ambient'
+// Perticleのインポート
+import Perticle from '@/components/Geometry/Perticle'
+// 球体のインポート
+import Sphere from '@/components/Geometry/Sphere'
+// Mappingのインポート
+import Map from '@/components/Tool/Texture/Map'
+// Mappingする画像のインポート
+import Sun from '@/assets/images/sunmap.jpg'
 
 export default class Space {
   constructor (props) {
@@ -14,14 +22,17 @@ export default class Space {
     // キャンバスの初期化
     Canvas.init(this.props.$canvas)
     // ライトの追加
-    this.directional = new Directional(0xFFFFFF, 1.0)
     Canvas.scene.add(this.directional)
+    this.ambient = new Ambient(0xFFFFFF, 1.0)
+    Canvas.scene.add(this.ambient)
     // ジオメトリの追加
-    this.mesh = new THREE.Mesh(
-      new THREE.BoxGeometry(5, 5, 5),
-      new THREE.MeshStandardMaterial()
-    )
-    Canvas.scene.add(this.mesh)
+    this.sphere = new Sphere(1.0)
+    this.TextureMap = new Map(Sun)
+    this.sun = new THREE.Mesh(this.sphere, this.TextureMap)
+    Canvas.scene.add(this.sun)
+    // パーティクルの追加
+    this.BgPerticle = new Perticle()
+    Canvas.scene.add(this.BgPerticle)
     // リサイズ
     window.addEventListener('resize', this.resize.bind(this))
     this.loop()
@@ -33,8 +44,8 @@ export default class Space {
 
   loop () {
     this.render()
-    this.mesh.rotation.x += 0.01
-    this.mesh.rotation.y += 0.01
+    this.sun.rotation.y += 0.0001
+    this.BgPerticle.rotateY(0.001)
     requestAnimationFrame(this.loop.bind(this))
   }
 
