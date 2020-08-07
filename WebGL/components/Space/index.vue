@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>test_component_1</p>
-    <canvas ref="space"></canvas>
+    <canvas ref="space" />
   </div>
 </template>
 
